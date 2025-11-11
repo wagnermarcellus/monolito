@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster - Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="app.css"></link>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 TaskMaster</h1>
+            <p>Organize suas tarefas de forma simples e eficiente</p>
+        </header>
+
+        <div class="card stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalTasks">0</div>
+                <div class="stat-label">Total de Tarefas</div>
+            </div>
+            <div class="stat-card" style="background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);">
+                <div class="stat-number" id="completedTasks">0</div>
+                <div class="stat-label">Concluídas</div>
+            </div>
+            <div class="stat-card" style="background: linear-gradient(135deg, #ff9800 0%, #e68900 100%);">
+                <div class="stat-number" id="pendingTasks">0</div>
+                <div class="stat-label">Pendentes</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="input-section">
+                <h2 style="margin-bottom: 20px;" id="formTitle">➕ Nova Tarefa</h2>
+                <form id="taskForm">
+                    <div class="input-group">
+                        <input type="text" id="taskTitle" placeholder="Título da tarefa" required aria-label="Título da tarefa">
+                        <select id="taskPriority" aria-label="Prioridade">
+                            <option value="baixa">Prioridade Baixa</option>
+                            <option value="media" selected>Prioridade Média</option>
+                            <option value="alta">Prioridade Alta</option>
+                        </select>
+                    </div>
+                    <textarea id="taskDescription" placeholder="Descrição (opcional)" aria-label="Descrição da tarefa"></textarea>
+                    <div class="input-group" style="margin-top: 15px;">
+                        <button type="submit" class="btn-primary" id="submitBtn">Adicionar Tarefa</button>
+                        <button type="button" class="btn-cancel" id="cancelBtn" style="display: none;">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="todas">Todas</button>
+                <button class="filter-btn" data-filter="pendentes">Pendentes</button>
+                <button class="filter-btn" data-filter="concluidas">Concluídas</button>
+                <button class="filter-btn" data-filter="alta">Alta Prioridade</button>
+            </div>
+
+            <div class="tasks-section" id="tasksContainer">
+                <div class="empty-state">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                    </svg>
+                    <h3>Nenhuma tarefa encontrada</h3>
+                    <p>Adicione sua primeira tarefa para começar!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+
+    </script>
+</body>
+</html>
