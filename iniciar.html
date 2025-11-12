@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>INICIAR</title>
+  <style>
+    :root{
+      --bg1: #0f172a;
+      --bg2: #0b3a66;
+      --card: rgba(255,255,255,0.06);
+      --accent: #22c55e;
+      --glass: rgba(255,255,255,0.06);
+      --glass-border: rgba(255,255,255,0.08);
+      --text: #e6eef8;
+    }
+
+    /* Reset simples */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(135deg,var(--bg1) 0%, var(--bg2) 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    /* Card central */
+    .card {
+      width:100%;
+      max-width:880px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px;
+      padding:32px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(6px) saturate(120%);
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:28px;
+      align-items:center;
+      animation: floatIn .7s cubic-bezier(.2,.9,.2,1);
+    }
+
+    @media (max-width:880px){
+      .card{grid-template-columns:1fr; padding:24px}
+    }
+
+    /* Left area: title + description */
+    .hero {
+      padding-right:8px;
+    }
+    h1{
+      font-size:clamp(28px,4vw,40px);
+      letter-spacing:-0.5px;
+      margin-bottom:8px;
+      line-height:1.05;
+    }
+    p.lead{
+      color:rgba(230,238,248,0.85);
+      margin-bottom:18px;
+    }
+    .meta {
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .pill{
+      background:var(--card);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      color:rgba(230,238,248,0.9);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    /* Right area: CTA */
+    .cta {
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .big-btn{
+      appearance:none;
+      border: none;
+      cursor:pointer;
+      padding:16px 22px;
+      font-size:18px;
+      font-weight:600;
+      border-radius:12px;
+      width:100%;
+      max-width:320px;
+      display:inline-flex;
+      gap:12px;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(90deg, rgba(34,197,94,0.16) 0%, rgba(34,197,94,0.08) 100%);
+      color:var(--text);
+      transition: transform .18s ease, box-shadow .18s ease;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(34,197,94,0.18);
+    }
+    .big-btn:active{ transform: translateY(1px) scale(.998) }
+    .big-btn:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(2,6,23,0.6);
+    }
+
+    .btn-icon{
+      width:22px;height:22px;
+      display:inline-grid;
+      place-items:center;
+      background: linear-gradient(180deg, rgba(34,197,94,1), rgba(16,185,129,1));
+      border-radius:8px;
+      color:#042014;
+      flex:0 0 auto;
+      box-shadow: 0 4px 12px rgba(16,185,129,0.18);
+    }
+
+    .subtext{
+      font-size:13px;
+      color:rgba(230,238,248,0.75);
+      text-align:center;
+      max-width:340px;
+    }
+
+    .small-links{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:center;
+      font-size:13px;
+    }
+    .small-links a{
+      color:rgba(230,238,248,0.8);
+      text-decoration:none;
+      padding:6px 10px;
+      border-radius:8px;
+    }
+    .small-links a:hover{
+      background:rgba(255,255,255,0.02);
+    }
+
+    /* nice subtle animation */
+    @keyframes floatIn{
+      from { transform: translateY(18px) scale(.995); opacity:0 }
+      to   { transform: translateY(0)    scale(1); opacity:1 }
+    }
+
+    /* Footer legal */
+    .foot{
+      margin-top:14px;
+      font-size:12px;
+      color:rgba(230,238,248,0.55);
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="titulo-iniciar">
+    <section class="hero" aria-hidden="false">
+      <h1 id="titulo-iniciar">Bem-vindo — Pronto para começar?</h1>
+      <p class="lead">Clique em <strong>INICIAR</strong> para abrir o link configurado. A página tem design responsivo, animação sutil e foco em acessibilidade.</p>
+
+      <div class="meta" aria-hidden="true">
+        <span class="pill">Rápido</span>
+        <span class="pill">Seguro</span>
+        <span class="pill">Responsivo</span>
+      </div>
+
+      <div class="foot" style="text-align:left;margin-top:18px;">
+        <strong>Dica:</strong> para trocar o link, edite a constante <code>targetUrl</code> no script.
+      </div>
+    </section>
+
+    <aside class="cta" aria-label="Ações">
+      <!-- Botão principal -->
+      <button class="big-btn" id="iniciarBtn" aria-label="Iniciar e abrir o link">
+        <span class="btn-icon" aria-hidden="true">
+          <!-- ícone simples (SVG) -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="M12 5l7 7-7 7"></path>
+          </svg>
+        </span>
+        INICIAR
+      </button>
+
+      <p class="subtext">O botão abre o link em uma nova aba. Se preferir abrir na mesma aba, altere o código JavaScript.</p>
+
+      <div class="small-links">
+        <a href="#" id="openSame">Abrir na mesma aba</a>
+        <a href="#" id="openNew">Abrir em nova aba</a>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    // --- CONFIGURE AQUI ---
+    // Substitua pelo link que você quer abrir:
+    const targetUrl = "/client/app.css.html";
+
+    // Tipo padrão: abre em nova aba
+    let openInNewTab = true;
+
+    const btn = document.getElementById('iniciarBtn');
+    const openSame = document.getElementById('openSame');
+    const openNew = document.getElementById('openNew');
+
+    function openTarget(){
+      if(!targetUrl || targetUrl.trim() === ""){
+        alert("Nenhum link configurado. Edite a variável targetUrl no script.");
+        return;
+      }
+      if(openInNewTab){
+        window.open(targetUrl, "_blank", "noopener,noreferrer");
+      } else {
+        window.location.href = targetUrl;
+      }
+    }
+
+    btn.addEventListener('click', openTarget);
+
+    // pequenos controles para demonstrar comportamento
+    openSame.addEventListener('click', function(e){
+      e.preventDefault();
+      openInNewTab = false;
+      openSame.style.fontWeight = "700";
+      openNew.style.fontWeight = "400";
+      openSame.style.opacity = "1";
+      openNew.style.opacity = "0.85";
+      // feedback visual rápido
+      openSame.innerText = "Abrir na mesma aba ✓";
+      setTimeout(()=> openSame.innerText = "Abrir na mesma aba", 1400);
+    });
+
+    openNew.addEventListener('click', function(e){
+      e.preventDefault();
+      openInNewTab = true;
+      openNew.style.fontWeight = "700";
+      openSame.style.fontWeight = "400";
+      openNew.innerText = "Abrir em nova aba ✓";
+      setTimeout(()=> openNew.innerText = "Abrir em nova aba", 1400);
+    });
+
+    // acessibilidade: teclado Enter/Space também ativa
+    btn.addEventListener('keyup', function(e){
+      if(e.key === "Enter" || e.key === " "){
+        openTarget();
+      }
+    });
+  </script>
+</body>
+</html>
