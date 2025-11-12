@@ -10,7 +10,7 @@ app.use(express.json())
 const db = mysql2.createConnection({
     host:"127.0.0.1",
     user:"root",
-    password:"Lucasggh12344@",
+    password:"senai",
     database:"todo_app",
     port:3306
 });

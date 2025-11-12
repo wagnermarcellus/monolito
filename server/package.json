@@ -1,13 +1,13 @@
 {
-  "name": "server",
-  "version": "1.0.0",
+  "name": "conection",
+  "version": "8.0.40",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Wagner",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.13.2",
@@ -15,9 +15,17 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "mysql": "^2.18.1",
-    "mysql2": "^3.15.3"
+    "mysql2": "^3.15.3",
+    "pg": "^8.16.3"
   },
   "type": "commonjs",
-  "description": "",
-  "devDependencies": {}
+  "description": "Server to link whit the project",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wagnermarcellus/monolito.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wagnermarcellus/monolito/issues"
+  },
+  "homepage": "https://github.com/wagnermarcellus/monolito#readme"
 }
